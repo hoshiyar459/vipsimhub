@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class check {
-
+ 
+    @Autowired
+    private BuySimRepo buySimRepo ;
 
      @GetMapping
      public String home(){
@@ -42,7 +44,8 @@ public class check {
     }
 
     @GetMapping("/paymentGateway")
-    public String paymentGateway(){
+    public String paymentGateway(@ModelAttribute("buyingDetails") BuySimEntity simEntity){
+          buySimRepo.save(simEntity);
          return "paymentGateway";
     }
 
