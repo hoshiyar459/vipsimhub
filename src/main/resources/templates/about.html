@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" th:href="@{stylesheet/about.css}">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <!-- Font Awesome CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+   
+</head>
+<body>
+   <div th:replace= "~{Common :: navbar }"></div>
+
+
+      <div class="aboutcontainer" id="About">
+        <section class="about">
+            <div class="about-image">
+                <img src="assets/about.jpg" alt="">
+            </div>
+            <div class="about-content">
+                <div class="about-first">
+                    <h1><span class="main-color">About</span> us</h1>
+                </div>
+                <h2><span class="main-color">Welcome to</span> Vip Number Store </h2>
+                <p>VIP NUMBER STORE is known across India as a company that provides valuable and high quality services since 2010. For eight
+                   years we have successfully sold over 10,000+ number to our customers in India and have never stopped our self from serving efficiently. 
+                   If you want to buy your favorite mobile number or a fancy number of your choice,
+                   VIP Number Store is the best brand offering such service at the most affordable rates in the country.</p>
+                <a href="https://wa.me/7240594937" class="order-now ">Contect us : +91 7240594937</a>
+            </div>
+        </section>
+    </div>
+
+
+  <div class="aboutcontainer" id="About">
+    <section class="about">
+        <div class="about-content">
+            <h2><span class="main-color">Welcome to</span> Vip Number Store </h2>
+            <p>VIP NUMBER STORE is known across India as a company that provides valuable and high quality services since 2010. For eight
+               years we have successfully sold over 10,000+ number to our customers in India and have never stopped our self from serving efficiently. 
+               If you want to buy your favorite mobile number or a fancy number of your choice,
+               VIP Number Store is the best brand offering such service at the most affordable rates in the country.</p>
+            <a href="https://wa.me/7240594937" class="order-now ">Contect us : +91 7240594937</a>
+        </div>
+        <div class="about-image">
+          <img src="assets/about.jpg" alt="">
+       </div>
+    </section>
+</div>
+
+<!--  -->
+  <!-- Why Choose Us Section -->
+  <section class="why-choose-us">
+    <h1 style="font-size: 30px;">Why Choose Us?</h1>
+    <div class="features">
+        <div class="feature">
+            <i class="fas text-green-500 fa-check-circle"></i>
+            <h3>Authenticity</h3>
+            <p>All our numbers are verified and 100% authentic.</p>
+        </div>
+        <div class="feature">
+            <i class="fas text-green-500 fa-headset"></i>
+            <h3>24/7 Customer Support</h3>
+            <p>Our team is available round the clock to assist you.</p>
+        </div>
+        <div class="feature">
+            <i class="fas text-green-500 fa-star"></i>
+            <h3>Unmatched Quality</h3>
+            <p>We deliver premium numbers with the highest standards.</p>
+        </div>
+        <div class="feature">
+            <i class="fas text-green-500 fa-thumbs-up"></i>
+            <h3>Affordable Prices</h3>
+            <p>We offer competitive pricing to make exclusivity accessible.</p>
+        </div>
+    </div>
+</section>
+
+
+ <div th:replace= "~{Common :: common_script }"></div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+[
+    {
+      "vipNumber": "9876543210",
+      "oldPrice": 1000,
+      "newPrice": 900,
+      "discount": "10%"
+    },
+    {
+      "vipNumber": "9123456789",
+      "oldPrice": 1200,
+      "newPrice": 1020,
+      "discount": "15%"
+    },
+    {
+      "vipNumber": "9988776655",
+      "oldPrice": 1500,
+      "newPrice": 1350,
+      "discount": "10%"
+    },
+    {
+      "vipNumber": "9654321876",
+      "oldPrice": 2000,
+      "newPrice": 1800,
+      "discount": "10%"
+    },
+    {
+      "vipNumber": "9871234560",
+      "oldPrice": 1800,
+      "newPrice": 1620,
+      "discount": "10%"
+    },
+    {
+      "vipNumber": "9876781234",
+      "oldPrice": 2500,
+      "newPrice": 2250,
+      "discount": "10%"
+    },
+    {
+      "vipNumber": "9543218765",
+      "oldPrice": 3000,
+      "newPrice": 2550,
+      "discount": "15%"
+    },
+    {
+      "vipNumber": "9123765487",
+      "oldPrice": 1600,
+      "newPrice": 1440,
+      "discount": "10%"
+    },
+    {
+      "vipNumber": "9876544321",
+      "oldPrice": 1100,
+      "newPrice": 1045,
+      "discount": "5%"
+    },
+    {
+      "vipNumber": "9988123456",
+      "oldPrice": 1300,
+      "newPrice": 1170,
+      "discount": "10%"
+    },
+    {
+      "vipNumber": "9654789123",
+      "oldPrice": 1700,
+      "newPrice": 1445,
+      "discount": "15%"
+    },
+    {
+      "vipNumber": "9876677889",
+      "oldPrice": 2200,
+      "newPrice": 1980,
+      "discount": "10%"
+    },
+    {
+      "vipNumber": "9988998877",
+      "oldPrice": 2700,
+      "newPrice": 2295,
+      "discount": "15%"
+    },
+    {
+      "vipNumber": "9877123456",
+      "oldPrice": 1900,
+      "newPrice": 1755,
+      "discount": "7.5%"
+    },
+    {
+      "vipNumber": "9123412345",
+      "oldPrice": 1400,
+      "newPrice": 1260,
+      "discount": "10%"
+    },
+    {
+      "vipNumber": "9988665544",
+      "oldPrice": 2500,
+      "newPrice": 2375,
+      "discount": "5%"
+    },
+    {
+      "vipNumber": "9654321234",
+      "oldPrice": 3000,
+      "newPrice": 2700,
+      "discount": "10%"
+    },
+    {
+      "vipNumber": "9876547890",
+      "oldPrice": 2300,
+      "newPrice": 1955,
+      "discount": "15%"
+    },
+    {
+      "vipNumber": "9123987654",
+      "oldPrice": 1200,
+      "newPrice": 1140,
+      "discount": "5%"
+    },
+    {
+      "vipNumber": "9654112233",
+      "oldPrice": 1500,
+      "newPrice": 1275,
+      "discount": "15%"
+    }
+  ]
+  

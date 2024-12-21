@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pay with UPI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-lg">
+    <h1 class="text-2xl font-semibold mb-4 text-center">Pay with UPI</h1>
+    <form id="payment-form" class="space-y-4">
+      <!-- User Input for Amount -->
+      <div>
+        <label for="amount" class="block text-sm font-medium text-gray-700">Amount (INR)</label>
+        <input
+          type="number"
+          id="amount"
+          name="amount"
+          class="mt-1 p-2 w-full border border-gray-300 rounded-md"
+          placeholder="Enter Amount"
+          required
+        />
+      </div>
+
+      <!-- Payment Buttons -->
+      <div class="space-y-2">
+        <button
+          type="button"
+          id="pay-phonepe"
+          class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 focus:outline-none"
+        >
+          Pay with PhonePe
+        </button>
+
+        <button
+          type="button"
+          id="pay-paytm"
+          class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 focus:outline-none"
+        >
+          Pay with Paytm
+        </button>
+
+        <button
+          type="button"
+          id="pay-googlepay"
+          class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 focus:outline-none"
+        >
+          Pay with Google Pay
+        </button>
+      </div>
+    </form>
+
+    <!-- Error Message Container -->
+    <div id="error-message" class="hidden mt-4 text-red-500 text-center">
+      <p id="error-text"></p>
+    </div>
+  </div>
+
+  <script>
+    // Common function to generate the UPI link for payment apps
+    function generateUPILink(vpa, payeeName, transactionId, amount, transactionNote, currencyCode) {
+      return `upi://pay?pa=${vpa}&pn=${payeeName}&tid=${transactionId}&tn=${transactionNote}&am=${amount}&cu=${currencyCode}`;
+    }
+
+    // Common event handler for each payment button
+    function handlePayment(paymentMethod) {
+      // Get the entered amount from the form
+      const amount = document.getElementById("amount").value;
+
+      if (amount && amount > 0) {
+        const payeeName = "Vishal Jangid"; // Your Name or Business Name
+        const transactionId = "txn" + new Date().getTime(); // Unique transaction ID (timestamp)
+        const transactionNote = "Payment for goods/services"; // Description of the transaction
+        const currencyCode = "INR"; // Currency code
+
+        let upiLink = "";
+        
+        // Generate the UPI payment link based on the selected payment method
+        if (paymentMethod === "phonepe") {
+          const phonePeVPA = "8302660875@axl"; // Replace with your PhonePe VPA (UPI ID)
+          upiLink = generateUPILink(phonePeVPA, payeeName, transactionId, amount, transactionNote, currencyCode);
+        } else if (paymentMethod === "paytm") {
+          const paytmVPA = "paytm@upi"; // Replace with your Paytm VPA (UPI ID)
+          upiLink = generateUPILink(paytmVPA, payeeName, transactionId, amount, transactionNote, currencyCode);
+        } else if (paymentMethod === "googlepay") {
+          const googlePayVPA = "googlepay@upi"; // Replace with your Google Pay VPA (UPI ID)
+          upiLink = generateUPILink(googlePayVPA, payeeName, transactionId, amount, transactionNote, currencyCode);
+        }
+
+        // Check if the user is on a mobile device
+        if (!/Android|iPhone/i.test(navigator.userAgent)) {
+          showError("UPI payments can only be made on mobile devices.");
+          return;
+        }
+
+        // Try redirecting to the respective app via UPI link
+        const paymentRedirectTimeout = setTimeout(function() {
+          showError("It seems that the app is not installed or UPI payment failed to redirect.");
+        }, 5000); // Timeout after 5 seconds if no app response
+
+        // Redirect to the UPI app via the generated UPI link
+        window.location.href = upiLink;
+
+        // Clear the timeout once the user is redirected to the app
+        setTimeout(function() {
+          clearTimeout(paymentRedirectTimeout);
+        }, 3000);
+      } else {
+        showError("Please enter a valid amount");
+      }
+    }
+
+    // Display error messages
+    function showError(message) {
+      document.getElementById("error-text").innerText = message;
+      document.getElementById("error-message").classList.remove("hidden");
+    }
+
+    // Event listeners for the payment buttons
+    document.getElementById("pay-phonepe").onclick = function() {
+      handlePayment("phonepe");
+    };
+
+    document.getElementById("pay-paytm").onclick = function() {
+      handlePayment("paytm");
+    };
+
+    document.getElementById("pay-googlepay").onclick = function() {
+      handlePayment("googlepay");
+    };
+  </script>
+</body>
+</html>

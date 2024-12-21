@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buy Now</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+<section>
+  <div class="bg-white shadow-xl rounded-lg p-8 w-full max-w-lg transition-transform duration-300">
+    <h2 class="text-2xl font-bold text-blue-600 mb-6 text-center">Buy Your VIP Number</h2>
+
+    <div class="text-center mb-6">
+      <p class="text-lg">VIP Number: <span class="text-green-500 font-semibold" id="vip-number"></span></p>
+      <p class="text-lg">New Price: ₹<span class="text-green-500 font-semibold" id="new-price"></span></p>
+    </div>
+
+    <form id="buy-form" class="space-y-4" th:action="@{paymentGateway}" th:object="${buyingDetails}" >
+      <!-- Full Name Input -->
+      <div>
+        <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+        <input type="text" id="name" name="FullName" placeholder="Enter your name"
+               class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+      </div>
+
+      <!-- Email Input -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+        <input type="email" id="email" name="Email" placeholder="Enter your email"
+               class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+      </div>
+
+      <!-- Phone Number Input -->
+      <div>
+        <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+        <input type="tel" id="phone" name="Number" placeholder="Enter your phone number"
+               class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+      </div>
+
+      <!-- Address Input -->
+      <div>
+        <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
+        <input type="text" id="address" name="Address" placeholder="Enter your Address"
+               class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+      </div>
+
+      <!-- City Input -->
+      <div>
+        <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+        <input type="text" id="city" name="City" placeholder="Enter City"
+               class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+      </div>
+
+      <!-- State Input -->
+      <div>
+        <label for="state" class="block text-sm font-medium text-gray-700">State</label>
+        <input type="text" id="state" name="State" placeholder="Enter Your State"
+               class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+      </div>
+
+      <!-- Pincode Input -->
+      <div>
+        <label for="pincode" class="block text-sm font-medium text-gray-700">Pincode</label>
+        <input type="text" id="pincode" name="Pincode" placeholder="Enter your pincode"
+               class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+      </div>
+
+      <!-- Submit Button -->
+      <div>
+        <a th:href="@{/paymentGateway}">paynow</a>
+        <button type="submit" class="w-full py-3 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition duration-200">
+          Submit
+        </button>
+      </div>
+
+    </form>
+  </div>
+</section>
+
+<script>
+  // Retrieve data from localStorage
+  const vipNumber = localStorage.getItem('vipNumber');
+  const newPrice = localStorage.getItem('newPrice');
+
+  // Display the data
+  document.getElementById('vip-number').textContent = vipNumber;
+  document.getElementById('new-price').textContent = newPrice;
+
+  // Handle form submission
+  document.getElementById('buy-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Get form data
+    const formData = {
+      vipNumber: vipNumber,
+      newPrice: newPrice,
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      pincode: document.getElementById('pincode').value,
+      city: document.getElementById('city').value,
+      state: document.getElementById('state').value
+    };
+
+    // Log the data (this can be replaced with an API call later)
+
+    // Optionally clear the form after submission
+
+    // Redirect to a success page or show a confirmation message
+
+  });
+</script>
+</body>
+</html>
